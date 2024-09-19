@@ -1,0 +1,55 @@
+#title-splash {
+    width: 1200px;
+    height: 310px;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    font-size: x-large;
+    text-align: left;
+    color: white;
+    border-radius: 20px;
+    background-color: rgba(115, 85, 34, 0.712);
+}
+
+@media (max-width: 1240px) {
+    #title-splash {
+        width: 91%;
+    }
+}
+
+#main-image {
+    height: 300px;
+    margin-right: 10%;
+    aspect-ratio: 1;
+    /* Make the image responsive */
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.scroller {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.background-img {
+    filter: grayscale(50%);
+    background: linear-gradient(to top, #34343490, #ffffff5b), url('../public/utahHike.png') no-repeat top center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* Keeps the background fixed during scroll */
+    /* Grey overlay with transparency */
+}
+
+.parallax-banner {
+    height: 150vh;
+}
+
+.foreground {
+    height: 400vh;
+}
