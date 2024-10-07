@@ -13,7 +13,7 @@ const AboutMe = () => {
             <ParallaxProvider scrollContainer={scrollEl}>
                 <ParallaxBanner
                     layers={[
-                        { speed: -100, expanded: false, className: 'background-img' },  // Background layer moves slowly
+                        { speed: -15, expanded: false, className: 'background-img' },  // Background layer moves slowly
                         {
                             children: (
                                 <div className="foreground">

@@ -39,7 +39,7 @@
 
 .background-img {
     filter: grayscale(50%);
-    background: linear-gradient(to top, #34343490, #ffffff5b), url('../public/utahHike.png') no-repeat top center;
+    background: linear-gradient(to top, #34343490, #ffffff5b), url('../public/utahRoverImg.png') no-repeat top center;
     background-size: cover;
     background-attachment: fixed;
     /* Keeps the background fixed during scroll */
