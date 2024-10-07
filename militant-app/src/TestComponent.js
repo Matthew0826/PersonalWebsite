@@ -17,12 +17,13 @@ const TestComponent = () => {
                     justifyContent: 'center', // Center content horizontally
                     height: '250vh'
                 }} />
-                <ResumeComponent speed={1} offset={0}></ResumeComponent>
                 <ParallaxLayer speed={-3} offset={1}>
-                    {Array.from({ length: 20 }).map((_, index) => (
+                    {Array.from({ length: 18 }).map((_, index) => (
                         <iframe src="https://giphy.com/embed/pejC6N6W5GLEPtA27w" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                     ))}
                 </ParallaxLayer>
+                <ResumeComponent speed={1} offset={0}></ResumeComponent>
+
 
                 <ParallaxLayer speed={4} offset={.5}>
                     <animated.img
