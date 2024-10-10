@@ -30,71 +30,26 @@ const Resume = () => {
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 1)', // Text shadow for highlighting
                 }}> Most Relevant</ParallaxLayer>
 
-
-
-
-
                 <ParallaxLayer speed={0.25} offset={.25} style={{
                     height: '75vh',
-                    background: 'linear-gradient(to bottom , rgb(220, 220, 220), rgb(160, 160, 160))',
+                    background: 'linear-gradient(to bottom , rgb(230, 230, 230), rgb(180, 180, 180))',
                     borderTop: '2px solid black',
                     borderBottom: '2px solid black',
                     display: 'flex',
                 }}>
-                    <div style={{
-                        width: '23%',
-                        borderRadius: '10px', // Rounded edges
-                        padding: '.1vw',
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
-                        margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'white',
-                        lineHeight: 1,
-                        fontSize: '150%',
-                    }}>
+                    <div class="card" style={{ fontSize: '1vw' }}>
+                        <h2>Education</h2>
+                        <img src="northeastern.jpg" class="NULogo"></img>
                         <h1>Northeastern<br />University</h1>
-                        <img src="northeastern.jpg" style={{
-                            width: '50%',
-                            borderRadius: '50%',
-                            aspectRatio: 1,
-                            objectFit: 'cover',
-                            border: '2px solid black', // Border for the left component
-                            boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
-                        }}></img>
-                        <h2>Mechanical & Computer Engineering</h2>
-                        <h2>-- Class of 2026 --</h2>
-                        <h2>GPA: 3.947</h2>
+                        <div style={{ fontSize: '1.5vw' }}>
+                            <p>Mechanical & Computer Engineering</p>
+                            <p>-- Class of 2026 --</p>
+                            <p>GPA: 3.947</p>
+                        </div>
                     </div >
-
-                    <div style={{
-                        width: '23%',
-                        borderRadius: '10px', // Rounded edges
-                        padding: '.1vw',
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
-                        margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'white',
-                        lineHeight: 1,
-                        fontSize: '105%',
-                    }}><h1>Notch Inc.</h1></div>
-                    <div style={{
-                        width: '23%',
-                        borderRadius: '10px', // Rounded edges
-                        padding: '.1vw',
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
-                        margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'white',
-                        lineHeight: 1,
-                        fontSize: '105%',
-                    }}><h1>NU Rover</h1></div>
-                    <div style={{
-                        width: '23%',
-                        borderRadius: '10px', // Rounded edges
-                        padding: '.1vw',
-                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
-                        margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'white',
-                        lineHeight: 1,
-                        fontSize: '105%',
-                    }}><h1>NU Lunabotics</h1></div>
+                    <div class="card"><h1>Notch Inc.</h1></div>
+                    <div class="card"><h1>NU Rover</h1></div>
+                    <div class="card"><h1>NU Lunabotics</h1></div>
                 </ParallaxLayer>
 
 

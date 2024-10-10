@@ -1,6 +1,4 @@
 .main-content {
-    background-color: red;
-    background-blend-mode: screen;
     width: 100vw;
     object-fit: cover;
     height: 75vh;
@@ -13,4 +11,30 @@
     background-color: rgba(142, 142, 142, 0.326);
     height: 75vh;
     width: 100vw;
+}
+
+.card {
+    width: 21%;
+    border-radius: 10px;
+    /*Rounded edge*/
+    padding: .1vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    /* Optional shadow for depth */
+    margin: 2%;
+    /* Space between the left component and main container*/
+    background-color: white;
+    line-height: 1;
+    font-size: 105%;
+}
+
+.NULogo {
+    width: 50%;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: '2px solid black';
+    /* Border for the left component */
+    box-shadow: '0 0 15px rgba(0, 0, 0, 0.75)';
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional shadow for depth */
 }
