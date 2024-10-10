@@ -1,13 +1,19 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useScroll, animated, useSpring } from '@react-spring/web'
 import './Resume.css';
 const Resume = () => {
     const [props, set] = useSpring(() => ({ rotate: 0 }));
-
+    const parallaxRef = useRef(null);
+    const handlePress = () => {
+        // Scroll the parallax down to the second layer (index 1)
+        if (parallaxRef.current) {
+            parallaxRef.current.scrollTo(.95);
+        }
+    };
     return (
         <div>
-            <Parallax pages={3} onScroll={(e) => { console.log(props); set({ rotate: e.target.scrollTop * 0.2 }) }}>
+            <Parallax pages={3} ref={parallaxRef} onScroll={(e) => { console.log(props); set({ rotate: e.target.scrollTop * 0.2 }) }}>
                 <ParallaxLayer speed={0} style={{
                     background: `linear-gradient(to top, #34343490, #ffffff5b), url('boston.jpeg')`,
                     backgroundColor: 'rgba(200, 200, 200, 1)',
@@ -33,11 +39,11 @@ const Resume = () => {
                 <ParallaxLayer speed={0.25} offset={.25} style={{
                     height: '75vh',
                     background: 'linear-gradient(to bottom , rgb(230, 230, 230), rgb(180, 180, 180))',
-                    borderTop: '2px solid black',
-                    borderBottom: '2px solid black',
+                    //borderTop: '2px solid black',
+                    //borderBottom: '2px solid black',
                     display: 'flex',
                 }}>
-                    <div class="card">
+                    <div class="card" onClick={handlePress}>
                         <h2>Education</h2>
                         <img src="northeastern.jpg" class="cardIcon"></img>
                         <h1>Northeastern<br />University</h1>
