@@ -38,3 +38,13 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     /* Optional shadow for depth */
 }
+
+.cardText {
+    line-height: 1;
+    font-size: 1.5vw;
+    padding-left: 0;
+}
+
+.cardText p {
+    margin: 2.25vh;
+}

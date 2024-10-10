@@ -41,7 +41,7 @@ const Resume = () => {
                         <h2>Education</h2>
                         <img src="northeastern.jpg" class="cardIcon"></img>
                         <h1>Northeastern<br />University</h1>
-                        <div style={{ fontSize: '1.5vw' }}>
+                        <div class="cardText">
                             <p>Mechanical & Computer <br />Engineering</p>
                             <p>-- Class of 2026 --</p>
                             <p>GPA: 3.947</p>
@@ -51,7 +51,7 @@ const Resume = () => {
                         <h2>Work Experience</h2>
                         <img src="notch.jpeg" class="cardIcon"></img>
                         <h1>Notch Inc. <br /><br /></h1>
-                        <div style={{ fontSize: '1.5vw' }}>
+                        <div class="cardText">
                             <p>Electrical & Computer<br />Engineering Co-Op</p>
                             <p>January - July 2024</p>
                             <p>RF Metamaterial Startup</p>
@@ -61,17 +61,17 @@ const Resume = () => {
                         <h2>Extracurricular Activities</h2>
                         <img src="lunabotics.jpg" class="cardIcon"></img>
                         <h1>NU Lunabotics<br /><br /></h1>
-                        <div style={{ fontSize: '1.5vw' }}>
-                            <p>Started Team of Over <br />15 People</p>
+                        <div class="cardText">
+                            <p>NASA Robotics <br />Competition</p>
                             <p>Project Lead & Founder</p>
-                            <p>NASA Robotics Competition</p>
+                            <p>Team of 15+ People</p>
                         </div>
                     </div>
                     <div class="card">
                         <h2>Awards</h2>
                         <img src="tbp.png" class="cardIcon"></img>
                         <h1>Northeastern<br />Tau Beta Pi</h1>
-                        <div style={{ fontSize: '1.5vw' }}>
+                        <div class="cardText">
                             <p>For Academic Performance <br /> & Character</p>
                             <p>Engineering Honor Society</p>
                             <p>Member Since Spring 2024</p>
