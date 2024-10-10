@@ -13,23 +13,18 @@ const Resume = () => {
     };
     return (
         <div>
-            <Parallax pages={3} ref={parallaxRef} onScroll={(e) => { console.log(props); set({ rotate: e.target.scrollTop * 0.2 }) }}>
-                <ParallaxLayer speed={0} style={{
-                    background: `linear-gradient(to top, #34343490, #ffffff5b), url('boston.jpeg')`,
-                    backgroundColor: 'rgba(200, 200, 200, 1)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center center', // Center the image
-                    display: 'flex', // Use flexbox to center content if needed
-                    justifyContent: 'center', // Center content horizontally
-                    height: '25vh',
+            <Parallax pages={3} ref={parallaxRef} >
+                < ParallaxLayer speed={0} offset={-.15}>
+                    <img class={'main-content'} src='boston.jpeg'></img>
+                    <div class='overlay'> </div>
+                </ParallaxLayer>
 
-
-                }}></ParallaxLayer>
                 < ParallaxLayer speed={0} offset={0.75} >
                     <img class={'main-content'} src='northeastern2.jpg'></img>
                     <div class='overlay'> </div>
                 </ParallaxLayer>
-                <ParallaxLayer speed={0.25} offset={0.075} style={{
+
+                <ParallaxLayer speed={0.25} offset={0.12} style={{
                     fontSize: '5rem',
                     alignItems: 'center',
                     color: "white",
@@ -39,8 +34,7 @@ const Resume = () => {
                 <ParallaxLayer speed={0.25} offset={.25} style={{
                     height: '75vh',
                     background: 'linear-gradient(to bottom , rgb(230, 230, 230), rgb(180, 180, 180))',
-                    //borderTop: '2px solid black',
-                    //borderBottom: '2px solid black',
+                    boxShadow: '0 0 15px rgba(0, 0, 0, 0.5)',
                     display: 'flex',
                 }}>
                     <div class="card" onClick={handlePress}>
@@ -85,9 +79,6 @@ const Resume = () => {
                     </div>
                 </ParallaxLayer>
 
-
-
-
                 <ParallaxLayer speed={0.25} offset={1.1} style={{
                     height: '75vh',
                     backgroundColor: 'rgba(200, 200, 200, 1)',
@@ -127,8 +118,7 @@ const Resume = () => {
                     </div>
                 </ParallaxLayer>
 
-
-                <ParallaxLayer speed={0.25} offset={.92} style={{
+                <ParallaxLayer speed={0.25} offset={.99} style={{
                     fontSize: '5rem',
                     alignItems: 'center',
                     size: '50vh',
