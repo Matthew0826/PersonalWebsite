@@ -22,6 +22,21 @@ const TestComponent = () => {
                         <iframe src="https://giphy.com/embed/pejC6N6W5GLEPtA27w" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
                     ))}
                 </ParallaxLayer>
+                <ResumeComponent speed={1} offset={0}></ResumeComponent>
+
+
+                <ParallaxLayer speed={4} offset={.5}>
+                    <animated.img
+                        src="northeastern.jpg"
+                        style={{
+                            width: 1000,
+                            height: 1000,
+                            transform: props.rotate.to((r) => `rotate(${r}deg)`),
+                        }}
+                    />
+                    <h1>I go to Northeastern</h1>
+
+                </ParallaxLayer>
                 <ParallaxLayer speed={10} offset={1}>
                     <h1 style={{
                         color: 'white'
