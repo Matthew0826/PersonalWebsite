@@ -24,10 +24,10 @@
     /* Space between the left component and main container*/
     background-color: white;
     line-height: 1;
-    font-size: 105%;
+    font-size: 1vw;
 }
 
-.NULogo {
+.cardIcon {
     width: 50%;
     border-radius: 50%;
     aspect-ratio: 1;

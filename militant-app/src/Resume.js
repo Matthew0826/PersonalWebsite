@@ -28,7 +28,7 @@ const Resume = () => {
                     alignItems: 'center',
                     color: "white",
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 1)', // Text shadow for highlighting
-                }}> Most Relevant</ParallaxLayer>
+                }}> Overview</ParallaxLayer>
 
                 <ParallaxLayer speed={0.25} offset={.25} style={{
                     height: '75vh',
@@ -37,19 +37,46 @@ const Resume = () => {
                     borderBottom: '2px solid black',
                     display: 'flex',
                 }}>
-                    <div class="card" style={{ fontSize: '1vw' }}>
+                    <div class="card">
                         <h2>Education</h2>
-                        <img src="northeastern.jpg" class="NULogo"></img>
+                        <img src="northeastern.jpg" class="cardIcon"></img>
                         <h1>Northeastern<br />University</h1>
                         <div style={{ fontSize: '1.5vw' }}>
-                            <p>Mechanical & Computer Engineering</p>
+                            <p>Mechanical & Computer <br />Engineering</p>
                             <p>-- Class of 2026 --</p>
                             <p>GPA: 3.947</p>
                         </div>
                     </div >
-                    <div class="card"><h1>Notch Inc.</h1></div>
-                    <div class="card"><h1>NU Rover</h1></div>
-                    <div class="card"><h1>NU Lunabotics</h1></div>
+                    <div class="card">
+                        <h2>Work Experience</h2>
+                        <img src="notch.jpeg" class="cardIcon"></img>
+                        <h1>Notch Inc. <br /><br /></h1>
+                        <div style={{ fontSize: '1.5vw' }}>
+                            <p>Electrical & Computer<br />Engineering Co-Op</p>
+                            <p>January - July 2024</p>
+                            <p>RF Metamaterial Startup</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>Extracurricular Activities</h2>
+                        <img src="lunabotics.jpg" class="cardIcon"></img>
+                        <h1>NU Lunabotics<br /><br /></h1>
+                        <div style={{ fontSize: '1.5vw' }}>
+                            <p>Started Team of Over <br />15 People</p>
+                            <p>Project Lead & Founder</p>
+                            <p>NASA Robotics Competition</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2>Awards</h2>
+                        <img src="tbp.png" class="cardIcon"></img>
+                        <h1>Northeastern<br />Tau Beta Pi</h1>
+                        <div style={{ fontSize: '1.5vw' }}>
+                            <p>For Academic Performance <br /> & Character</p>
+                            <p>Engineering Honor Society</p>
+                            <p>Member Since Spring 2024</p>
+                        </div>
+                    </div>
                 </ParallaxLayer>
 
 
