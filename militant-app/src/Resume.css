@@ -1,0 +1,16 @@
+.main-content {
+    background-color: red;
+    background-blend-mode: screen;
+    width: 100vw;
+    object-fit: cover;
+    height: 75vh;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(142, 142, 142, 0.326);
+    height: 75vh;
+    width: 100vw;
+}
