@@ -36,7 +36,7 @@ const Resume = () => {
 
                 <ParallaxLayer speed={0.25} offset={.25} style={{
                     height: '75vh',
-                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    background: 'linear-gradient(to bottom , rgb(220, 220, 220), rgb(160, 160, 160))',
                     borderTop: '2px solid black',
                     borderBottom: '2px solid black',
                     display: 'flex',
@@ -47,7 +47,7 @@ const Resume = () => {
                         padding: '.1vw',
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
                         margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'rgba(230, 230, 255, 1)',
+                        backgroundColor: 'white',
                         lineHeight: 1,
                         fontSize: '150%',
                     }}>
@@ -71,7 +71,7 @@ const Resume = () => {
                         padding: '.1vw',
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
                         margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'rgba(230, 230, 255, 1)',
+                        backgroundColor: 'white',
                         lineHeight: 1,
                         fontSize: '105%',
                     }}><h1>Notch Inc.</h1></div>
@@ -81,7 +81,7 @@ const Resume = () => {
                         padding: '.1vw',
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
                         margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'rgba(230, 230, 255, 1)',
+                        backgroundColor: 'white',
                         lineHeight: 1,
                         fontSize: '105%',
                     }}><h1>NU Rover</h1></div>
@@ -91,7 +91,7 @@ const Resume = () => {
                         padding: '.1vw',
                         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', // Optional shadow for depth
                         margin: '1%', // Space between the left component and main container
-                        backgroundColor: 'rgba(230, 230, 255, 1)',
+                        backgroundColor: 'white',
                         lineHeight: 1,
                         fontSize: '105%',
                     }}><h1>NU Lunabotics</h1></div>
