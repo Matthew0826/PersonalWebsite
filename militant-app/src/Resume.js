@@ -51,7 +51,7 @@ const Resume = () => {
                         lineHeight: 1,
                         fontSize: '150%',
                     }}>
-                        <h1>Northeastern <br />University</h1>
+                        <h1>Northeastern<br />University</h1>
                         <img src="northeastern.jpg" style={{
                             width: '50%',
                             borderRadius: '50%',
