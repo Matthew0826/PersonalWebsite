@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import TopBar from "./TopBar";
 import AboutMe from "./AboutMe";
-import Calendar from "./Calendar"
 import Resume from "./Resume"
 import './App.css'; // Import the CSS file for styling
 import TestComponent from "./TestComponent";
@@ -14,7 +13,6 @@ export default function App() {
           <Route path="/" element={<Navigate to="/about" />} /> {/* Redirect root to /about */}
           <Route path="/about" element={<AboutMe />}></Route>
           <Route path="/test" element={<TestComponent />}></Route>
-          <Route path="/calendar" element={<Calendar />}></Route>
           <Route path="/resume" element={<Resume />}></Route>
         </Routes>
       </BrowserRouter>
