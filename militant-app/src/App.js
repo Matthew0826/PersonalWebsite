@@ -14,6 +14,7 @@ export default function App() {
           <Route path="/about" element={<AboutMe />}></Route>
           <Route path="/test" element={<TestComponent />}></Route>
           <Route path="/resume" element={<Resume />}></Route>
+          <Route path="/love" element={<Resume />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
