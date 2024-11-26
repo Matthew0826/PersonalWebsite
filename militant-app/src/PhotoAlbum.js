@@ -48,11 +48,11 @@ const PhotoAlbum = () => {
         }
     };
 
-    const formData = (selectedFiles) => {
+    const formData = () => {
         new FormData();
 
         // Append each selected file to FormData
-        selectedFiles.forEach(file => {
+        files.forEach(file => {
             formData.append("images", file); // Assuming the server expects 'images' as the key
         });
 
@@ -122,7 +122,7 @@ const PhotoAlbum = () => {
                     <p>{location}</p>
                 </div>
             )}
-            <button onClick={formData(files)}>Upload</button>
+            <button onClick={formData}>Upload</button>
 
         </div>
     );
