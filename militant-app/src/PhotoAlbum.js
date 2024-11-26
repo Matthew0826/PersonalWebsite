@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './PhotoAlbum.css';
 
 const PhotoAlbum = () => {
-    const [timeLeft, setTimeLeft] = useState(2000); // time in seconds
+    const [timeLeft, setTimeLeft] = useState(0); // time in seconds
 
     // This function calculates days, hours, minutes, and seconds from timeLeft
     const getWeeks = () => Math.floor(timeLeft / (60 * 60 * 24 * 7)); // Days
@@ -12,11 +12,18 @@ const PhotoAlbum = () => {
     const getSeconds = () => timeLeft % 60; // Seconds
 
     useEffect(() => {
-        const fetchData =  async () => { 
-            const response = (await fetch("https://apt.mattgeisel.com/for_faith/time_until")).json();
-            console.log(response);
-        }
-        fetchData();
+        const fetchTimeLeft = async () => {
+            try {
+                const response = await fetch("https://apt.mattgeisel.com/for_faith/time_until");
+                const data = await response.json();
+                setTimeLeft(Math.round(data["Time Left"]) || 2000); // Assuming 'timeLeft' is in seconds
+            } catch (error) {
+                console.error("Error fetching timeLeft:", error);
+            }
+        };
+
+        // Fetch data on component mount
+        fetchTimeLeft();
         const intervalID = setInterval(() => {
             setTimeLeft(prevTime => prevTime - 1);
         }, 1000); // Run every second
@@ -28,7 +35,7 @@ const PhotoAlbum = () => {
     return (
         <div className='main-content'>
             <div className='titlePage'>
-                <h1> Time Until I See You Again: <br /></h1>
+                <h1> Time Until I See You Again:</h1>
             </div>
             <div className="countdown">
                 <div className='number'> <h1>{getWeeks()}</h1> Week{getWeeks() !== 1 ? 's' : ''} </div>
@@ -37,6 +44,11 @@ const PhotoAlbum = () => {
                 <div className='number'> <h1>{getMinutes()}</h1> Minute{getMinutes() !== 1 ? 's' : ''} </div>
                 <div className='number'> <h1>{getSeconds()}</h1> Second{getSeconds() !== 1 ? 's' : ''} </div>
             </div>
+            <div>
+                <img src="boston.jpg"></img>
+            </div>
+            <input type="file" id="imageUpload" accept="image/*" onChange="previewImage()" />
+
         </div>
     );
 };
