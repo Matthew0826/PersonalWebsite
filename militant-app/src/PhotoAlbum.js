@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PhotoAlbum.css';
+import EXIF from 'exif-js';
 
 const PhotoAlbum = () => {
     const [timeLeft, setTimeLeft] = useState(0); // time in seconds
@@ -10,7 +11,22 @@ const PhotoAlbum = () => {
     const getHours = () => Math.floor((timeLeft % (60 * 60 * 24)) / (60 * 60)); // Hours
     const getMinutes = () => Math.floor((timeLeft % (60 * 60)) / 60); // Minutes
     const getSeconds = () => timeLeft % 60; // Seconds
-
+       // Function to handle file input and read EXIF data
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+    if (file) {
+      EXIF.getData(file, function () {
+        console.log("tags: ", EXIF.getAllTags(this));
+        const date = EXIF.getTag(this, 'DateTimeOriginal');
+        if (date) {
+          console.log(date);
+        } else {
+          console.log('No date found');
+        }
+      });
+    }
+  };
     useEffect(() => {
         const fetchTimeLeft = async () => {
             try {
@@ -47,7 +63,9 @@ const PhotoAlbum = () => {
             <div>
                 <img src="boston.jpg"></img>
             </div>
-            <input type="file" id="imageUpload" accept="image/*" onChange="previewImage()" />
+            <div className="upload-container">
+                <input type="file" id="imageUpload" accept="image/*" onChange={handleImageUpload} />
+            </div>
 
         </div>
     );
