@@ -6,7 +6,7 @@ const PhotoAlbum = () => {
     const [timeLeft, setTimeLeft] = useState(0); // time in seconds
     const [location, setLocation] = useState(null); // To store image location (latitude, longitude)
     const [imageDate, setImageDate] = useState(null); // To store image date
-
+    const [files, setFiles] = useState(null);
     // This function calculates days, hours, minutes, and seconds from timeLeft
     const getWeeks = () => Math.floor(timeLeft / (60 * 60 * 24 * 7)); // Weeks
     const getDays = () => Math.floor(timeLeft / (60 * 60 * 24)); // Days
@@ -16,6 +16,7 @@ const PhotoAlbum = () => {
 
     // Function to handle file input and read EXIF data
     const handleImageUpload = (e) => {
+        setFiles(e.target.files);
         const file = e.target.files[0];
         if (file) {
             EXIF.getData(file, function () {
@@ -45,6 +46,22 @@ const PhotoAlbum = () => {
                 }
             });
         }
+    };
+
+    const formData = (selectedFiles) => {
+        new FormData();
+
+        // Append each selected file to FormData
+        selectedFiles.forEach(file => {
+            formData.append("images", file); // Assuming the server expects 'images' as the key
+        });
+
+        
+        // POST the form data with the files to the server
+        fetch('https://mattgeisel.com/upload/images', {
+            method: 'POST',
+            body: formData,
+        });
     };
 
     useEffect(() => {
@@ -105,6 +122,8 @@ const PhotoAlbum = () => {
                     <p>{location}</p>
                 </div>
             )}
+            <button onClick={formData(files)}>Upload</button>
+
         </div>
     );
 };
