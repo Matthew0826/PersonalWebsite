@@ -17,6 +17,7 @@ const PhotoAlbum = () => {
     // Function to handle file input and read EXIF data
     const handleImageUpload = (e) => {
         setFiles(e.target.files);
+        console.log(files);
         const file = e.target.files[0];
         if (file) {
             EXIF.getData(file, function () {
@@ -50,7 +51,7 @@ const PhotoAlbum = () => {
 
     const formData = () => {
         new FormData();
-
+        console.log(files);
         // Append each selected file to FormData
         files.forEach(file => {
             formData.append("images", file); // Assuming the server expects 'images' as the key
