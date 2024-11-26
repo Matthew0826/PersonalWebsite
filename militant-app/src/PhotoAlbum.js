@@ -84,7 +84,7 @@ const PhotoAlbum = () => {
                 <img src="boston.jpg" alt="Boston" />
             </div>
             <div className="upload-container">
-                <input type="file" id="imageUpload" accept="image/*" onChange={handleImageUpload} />
+                <input type="file" id="imageUpload" accept="image/*" multiple onChange={handleImageUpload} />
             </div>
 
             {/* Display the photo's date */}
