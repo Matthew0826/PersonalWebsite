@@ -85,9 +85,7 @@ const PhotoAlbum = () => {
         // Fetch data on component mount
         fetchTimeLeft();
         const intervalID = setInterval(() => {
-            if( timeLeft > 0){
-                setTimeLeft(prevTime => prevTime - 1);
-            }
+            setTimeLeft(prevTime => prevTime - 1);
         }, 1000); // Run every second
 
         // Cleanup interval on component unmount
