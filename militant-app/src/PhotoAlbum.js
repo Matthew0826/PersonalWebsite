@@ -4,9 +4,9 @@ import EXIF from 'exif-js';
 
 const PhotoAlbum = () => {
     const [timeLeft, setTimeLeft] = useState(0); // time in seconds
-    const [location, setLocation] = useState(null); // To store image location (latitude, longitude)
-    const [imageDate, setImageDate] = useState(null); // To store image date
-    const [files, setFiles] = useState(null);
+    const [imageList, setImageList] = useState([]);
+    const [metadata, setMetadata] = useState("");
+
     // This function calculates days, hours, minutes, and seconds from timeLeft
     const getWeeks = () => Math.floor(timeLeft / (60 * 60 * 24 * 7)); // Weeks
     const getDays = () => Math.floor(timeLeft / (60 * 60 * 24)); // Days
@@ -16,22 +16,25 @@ const PhotoAlbum = () => {
 
     // Function to handle file input and read EXIF data
     const handleImageUpload = (e) => {
-        setFiles(e.target.files);
-        console.log(files);
-        const file = e.target.files[0];
-        if (file) {
+        setMetadata( "" );
+        setImageList(Array.from(e.target.files));
+        let newMetadata = "";
+        Array.from(e.target.files).forEach( (file) => {
+            console.log(file);
+            let line = file.name + ":";
             EXIF.getData(file, function () {
                 console.log("tags: ", EXIF.getAllTags(this));
-
+                
                 // Get the date the photo was taken
                 const date = EXIF.getTag(this, 'DateTimeOriginal');
                 if (date) {
-                    setImageDate(date);
+                    line += "<Date>" + date + ""
                     console.log("Photo date: ", date);
                 } else {
-                    setImageDate('No date found');
+                    line += "<Date>None"
                     console.log('No date found');
                 }
+                
 
                 // Get GPS coordinates (latitude and longitude)
                 const latitude = EXIF.getTag(this, 'GPSLatitude');
@@ -39,29 +42,32 @@ const PhotoAlbum = () => {
                 if (latitude && longitude) {
                     const lat = latitude[0] + latitude[1] / 60 + latitude[2] / 3600; // Convert to decimal
                     const lon = longitude[0] + longitude[1] / 60 + longitude[2] / 3600; // Convert to decimal
-                    setLocation({ lat, lon });
+                    line += "<Position>" + lat + ", " + lon + ""
                     console.log(`Location: ${lat}, ${lon}`);
                 } else {
-                    setLocation('No location data found');
+                    line += "<Position>None";
                     console.log('No location data found');
                 }
+                line += "\n";
+                newMetadata += line;
+                setMetadata(newMetadata);
             });
-        }
+        });
     };
 
     const formData = () => {
-        new FormData();
-        console.log(files);
+        const currData = new FormData();
+        currData.append('metadata', metadata)
         // Append each selected file to FormData
-        files.forEach(file => {
-            formData.append("images", file); // Assuming the server expects 'images' as the key
-        });
-
-        
+        imageList.forEach( (file) => {
+            currData.append('files', file );
+        })
+    
+        console.log(currData);
         // POST the form data with the files to the server
-        fetch('https://mattgeisel.com/upload/images', {
+        fetch('https://apt.mattgeisel.com/upload/images', {
             method: 'POST',
-            body: formData,
+            body: currData,
         });
     };
 
@@ -79,7 +85,9 @@ const PhotoAlbum = () => {
         // Fetch data on component mount
         fetchTimeLeft();
         const intervalID = setInterval(() => {
-            setTimeLeft(prevTime => prevTime - 1);
+            if( timeLeft > 0){
+                setTimeLeft(prevTime => prevTime - 1);
+            }
         }, 1000); // Run every second
 
         // Cleanup interval on component unmount
@@ -104,25 +112,6 @@ const PhotoAlbum = () => {
             <div className="upload-container">
                 <input type="file" id="imageUpload" accept="image/*" multiple onChange={handleImageUpload} />
             </div>
-
-            {/* Display the photo's date */}
-            {imageDate && (
-                <div className="image-info">
-                    <p>Photo taken on: {imageDate}</p>
-                </div>
-            )}
-
-            {/* Display the photo's location */}
-            {location && location.lat && location.lon && (
-                <div className="image-info">
-                    <p>Location: Latitude: {location.lat.toFixed(4)}, Longitude: {location.lon.toFixed(4)}</p>
-                </div>
-            )}
-            {location && !location.lat && !location.lon && (
-                <div className="image-info">
-                    <p>{location}</p>
-                </div>
-            )}
             <button onClick={formData}>Upload</button>
 
         </div>
