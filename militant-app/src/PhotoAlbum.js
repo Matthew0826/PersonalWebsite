@@ -16,56 +16,120 @@ const PhotoAlbum = () => {
 
     // Function to handle file input and read EXIF data
     const handleImageUpload = (e) => {
-        setMetadata( "" );
+        setMetadata("");
         setImageList(Array.from(e.target.files));
         let newMetadata = "";
-        Array.from(e.target.files).forEach( (file) => {
+    
+        Array.from(e.target.files).forEach((file) => {
             console.log(file);
             let line = file.name + ":";
-            EXIF.getData(file, function () {
-                console.log("tags: ", EXIF.getAllTags(this));
-                
-                // Get the date the photo was taken
-                const date = EXIF.getTag(this, 'DateTimeOriginal');
-                if (date) {
-                    line += "<Date>" + date + ""
-                    console.log("Photo date: ", date);
-                } else {
-                    line += "<Date>None"
-                    console.log('No date found');
-                }
-                
-
-                // Get GPS coordinates (latitude and longitude)
-                const latitude = EXIF.getTag(this, 'GPSLatitude');
-                const longitude = EXIF.getTag(this, 'GPSLongitude');
-                if (latitude && longitude) {
-                    const lat = latitude[0] + latitude[1] / 60 + latitude[2] / 3600; // Convert to decimal
-                    const lon = longitude[0] + longitude[1] / 60 + longitude[2] / 3600; // Convert to decimal
-                    line += "<Position>" + lat + ", " + lon + ""
-                    console.log(`Location: ${lat}, ${lon}`);
-                } else {
-                    line += "<Position>None";
-                    console.log('No location data found');
-                }
-
-                // Get the orientation of the image
-                const orientation = EXIF.getTag(this, 'Orientation');
-                if (orientation) {
-                    line += "<Orientation>" + orientation + "";
-                    console.log("Orientation: ", orientation);
-                } else {
-                    line += "<Orientation>None";
-                    console.log('No orientation data found');
-                }
-                
-                line += "\n";
-                newMetadata += line;
-                setMetadata(newMetadata);  
-            });
+    
+            // Create an image element to load the image file
+            const img = new Image();
+            const reader = new FileReader();
+    
+            reader.onload = function (event) {
+                img.onload = function () {
+                    // Create a canvas to manipulate the image
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+    
+                    // Get the EXIF data
+                    EXIF.getData(file, function () {
+                        console.log("tags: ", EXIF.getAllTags(this));
+    
+                        // Get the orientation tag
+                        const orientation = EXIF.getTag(this, 'Orientation');
+                        if (orientation) {
+                            console.log("Orientation: ", orientation);
+                        } else {
+                            console.log('No orientation data found');
+                        }
+    
+                        // Calculate the correct rotation based on the EXIF orientation
+                        let angle = 0;
+                        switch (orientation) {
+                            case 3:
+                                angle = 180;
+                                break;
+                            case 6:
+                                angle = 90;
+                                break;
+                            case 8:
+                                angle = 270;
+                                break;
+                            default:
+                                angle = 0; // No rotation needed
+                                break;
+                        }
+    
+                        // Resize the canvas to 1000x1200
+                        const targetWidth = 1000;
+                        const targetHeight = (img.height / img.width) * targetWidth; // Maintain aspect ratio
+                        canvas.width = targetWidth;
+                        canvas.height = targetHeight;
+    
+                        // Clear the canvas and rotate/resize the image
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        ctx.save();
+    
+                        // Translate and rotate
+                        if (angle !== 0) {
+                            ctx.translate(canvas.width / 2, canvas.height / 2);
+                            ctx.rotate((angle * Math.PI) / 180);
+                            ctx.translate(-canvas.width / 2, -canvas.height / 2);
+                        }
+    
+                        // Draw the image (resized)
+                        ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+    
+                        // Restore canvas state
+                        ctx.restore();
+    
+                        // Get the rotated and resized image as a JPEG
+                        canvas.toBlob((blob) => {
+                            const newFile = new File([blob], file.name, { type: 'image/jpeg' });
+    
+                            // Set new file (to upload or preview)
+                            setImageList(prev => [...prev, newFile]);
+    
+                            // Extract EXIF metadata as before
+                            const date = EXIF.getTag(this, 'DateTimeOriginal');
+                            if (date) {
+                                line += "<Date>" + date + "</Date>";
+                                console.log("Photo date: ", date);
+                            } else {
+                                line += "<Date>None</Date>";
+                                console.log('No date found');
+                            }
+    
+                            // Get GPS coordinates (latitude and longitude)
+                            const latitude = EXIF.getTag(this, 'GPSLatitude');
+                            const longitude = EXIF.getTag(this, 'GPSLongitude');
+                            if (latitude && longitude) {
+                                const lat = latitude[0] + latitude[1] / 60 + latitude[2] / 3600; // Convert to decimal
+                                const lon = longitude[0] + longitude[1] / 60 + longitude[2] / 3600; // Convert to decimal
+                                line += "<Position>" + lat + ", " + lon + "</Position>";
+                                console.log(`Location: ${lat}, ${lon}`);
+                            } else {
+                                line += "<Position>None</Position>";
+                                console.log('No location data found');
+                            }
+    
+                            // Append the orientation and other metadata
+                            line += "<Orientation>" + orientation + "</Orientation>\n";
+                            newMetadata += line;
+                            setMetadata(newMetadata);  
+                        }, 'image/jpeg', 0.8); // 0.8 for compression quality
+                    });
+                };
+                img.src = event.target.result;
+            };
+    
+            reader.readAsDataURL(file); // Convert the file to a data URL
         });
     };
-
+    
     const formData = () => {
         const currData = new FormData();
         currData.append('metadata', metadata)
