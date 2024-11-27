@@ -48,9 +48,20 @@ const PhotoAlbum = () => {
                     line += "<Position>None";
                     console.log('No location data found');
                 }
+
+                // Get the orientation of the image
+                const orientation = EXIF.getTag(this, 'Orientation');
+                if (orientation) {
+                    line += "<Orientation>" + orientation + "";
+                    console.log("Orientation: ", orientation);
+                } else {
+                    line += "<Orientation>None";
+                    console.log('No orientation data found');
+                }
+                
                 line += "\n";
                 newMetadata += line;
-                setMetadata(newMetadata);
+                setMetadata(newMetadata);  
             });
         });
     };
@@ -77,11 +88,12 @@ const PhotoAlbum = () => {
                 const response = await fetch("https://apt.mattgeisel.com/for_faith/time_until");
                 const data = await response.json();
                 setTimeLeft(Math.round(data["Time Left"]) || 2000); // Assuming 'timeLeft' is in seconds
+
             } catch (error) {
                 console.error("Error fetching timeLeft:", error);
             }
         };
-
+        
         // Fetch data on component mount
         fetchTimeLeft();
         const intervalID = setInterval(() => {
@@ -110,6 +122,7 @@ const PhotoAlbum = () => {
             <div className="upload-container">
                 <input type="file" id="imageUpload" accept="image/*" multiple onChange={handleImageUpload} />
             </div>
+            <img id="image1"  className = "image" src="https://apt.mattgeisel.com/for_faith/random"></img>
             <button onClick={formData}>Upload</button>
 
         </div>
