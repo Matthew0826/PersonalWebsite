@@ -7,6 +7,7 @@
     background-color: rgb(175, 175, 175);
     justify-content: center;
     align-items: center;
+    overflow-y: auto;   /* Enable vertical scrolling when content overflows */
 }
 
 .titlePage{
@@ -41,6 +42,35 @@
     font-size: xxx-large;
 }
 
-.image{
-    height: 300px;
+img{
+    width: 25%;
+    border-radius: 20px;
+}
+
+.imageContainer{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: lightgray;
+    margin: 2.5%;
+    width: 91%;
+    display: flex;
+    justify-content: flex-start;
+    outline: 2px solid gray;
+}
+
+.imageContainer .textContent{
+    display: flex;
+    justify-content: center;
+    align-items: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.textContent h1{
+    font-size: 3vw;
+}
+
+.textContent h3{
+    font-size: 2.5vw;
+    font-weight: normal;
 }
