@@ -92,12 +92,12 @@ const Resume = () => {
                         </div>
                         <div className="card" onClick={() => handlePress(3)}>
                             <h2>Extracurricular Activities</h2>
-                            <img src="lunabotics.jpg" className="cardIcon"></img>
+                            <img src="lunabotics.png" className="cardIcon"></img>
                             <h1>NU Lunabotics<br /><br /></h1>
                             <div className="cardText">
                                 <p>NASA Robotics <br />Competition</p>
                                 <p>Project Lead & Founder</p>
-                                <p>Team of 15+ People</p>
+                                <p>Team of 10+ People</p>
                             </div>
                         </div>
                         <div className="card">
@@ -121,18 +121,18 @@ const Resume = () => {
                             <h1>Mechanical<br />Engineering</h1>
                             <div className="cardText">
                                 <p>-- Relevant Coursework --</p>
-                                <p><b>Current</b>: Comp. & Design</p>
-                                <p><b>Completed</b>: Fluids, Dynamics, Thermo, Material Sci., Mechanics of Materials</p>
+                                <p><b>Current</b>: Design, Heat Transfer, System Analysis & Control</p>
+                                <p><b>Completed</b>: Fluids, Dynamics, Thermo, Material Sci., Mechanics of Materials, Comp. & Design</p>
                             </div>
                         </div >
                         <div className="card edu">
                             <h2>B.S. In Progress (NU)</h2>
-                            <img src="compe.jpg" className="cardIcon"></img>
-                            <h1>Computer<br />Engineering</h1>
+                            <img src="elece.png" className="cardIcon"></img>
+                            <h1>Electrical<br />Engineering</h1>
                             <div className="cardText">
                                 <p>-- Relevant Coursework --</p>
-                                <p><b>Current</b>: Linear Systems, Algorithms, Networks</p>
-                                <p><b>Completed</b>: Digital Design, Electronics</p>
+                                <p><b>Current</b>: Electromagnetics</p>
+                                <p><b>Completed</b>: Digital Design, Electronics, Linear Systems, Algorithms, Networks</p>
                             </div>
                         </div>
                         <div className="card edu">
@@ -151,7 +151,7 @@ const Resume = () => {
                 <ParallaxLayer speed={0.25} offset={2.15}>
                     <div className="panel">
                         <div className="card" onClick={handlePress}>
-                            <h2>EECE CO-OP / Intern</h2>
+                            <h2>Electrical & Computer Engineering Co-Op</h2>
                             <img src="notch.jpeg" className="cardIcon"></img>
                             <h1>Notch Inc.</h1>
                             <div className="cardText">
@@ -196,43 +196,43 @@ const Resume = () => {
                 <ParallaxLayer speed={0.25} offset={3.15}>
                     <div className="panel">
                         <div className="card" onClick={handlePress}>
-                            <h2>EECE CO-OP / Intern</h2>
-                            <img src="notch.jpeg" className="cardIcon"></img>
-                            <h1>Notch Inc.</h1>
+                            <h2>Project Lead / Founder</h2>
+                            <img src="lunabotics.png" className="cardIcon"></img>
+                            <h1>NU Lunabotics</h1>
                             <div className="cardText">
-                                <p>Cambridge, MA</p>
-                                <p>January - July 2024< br />(part-time since)</p>
-                                <p><b>Skills:</b> PCB Design, Circuit Design, Python Programming, Rapid Prototyping, Full-Stack Development, RPi</p>
+                                <p>September 2024 - Present< br /></p>
+                                <p><b>Projects:</b> Differential Swerve, Construction System, UWB Trilateration, LiDAR Obstacle Detection</p>
+                                <p><b>Skills:</b> CAD, Mechanical Design, ROS2, Unix, Python, C++, Serial Comms, Leadership</p>
                             </div>
                         </div >
                         <div className="card">
-                            <h2>EXPlorer</h2>
-                            <img src="makerspace.png" className="cardIcon"></img>
-                            <h1>EXP Makerspace</h1>
+                            <h2>Finance Chair</h2>
+                            <img src="seds.png" className="cardIcon"></img>
+                            <h1>NU SEDS</h1>
                             <div className="cardText">
-                                <p>Boston, MA<br /> Northeastern University</p>
-                                <p>January 2023 - April 2024</p>
-                                <p><p><b>Skills:</b> Laser Cutting, 3D Printing, CAD, Product Design, First Aid Training, Customer Service</p></p>
+                                <p>January 2023 - Present</p>
+                                <p><b>Projects:</b> SEDS Finance System, Managing Budget of $25,000+</p>
+                                <p><b>Skills:</b> HTML/CSS/JS, React.js, Fullstack Development, Leadership, Finance</p>
                             </div>
                         </div>
                         <div className="card">
-                            <h2>Intern</h2>
-                            <img src="unilux.jpg" className="cardIcon"></img>
-                            <h1>Unilux Inc.</h1>
+                            <h2>Mechanical Co-Lead</h2>
+                            <img src="rover.png" className="cardIcon"></img>
+                            <h1>NU Rover</h1>
                             <div className="cardText">
-                                <p>Saddle Brook, NJ</p>
-                                <p>June-August 2021 & 2022<br />May 2023</p>
-                                <p><b>Skills:</b> Soldering, Procedure Development, PID Controller, C++ Programming</p>
+                                <p>September 2022 - Present<br /></p>
+                                <p><b>Projects:</b> Screw Gear Claw, Auger System</p>
+                                <p><b>Skills:</b> Solidworks, Rapid Prototyping, Leadership, Collaboration, Mechanical Design</p>
                             </div>
                         </div>
                         <div className="card">
-                            <h2>Adventure Guide</h2>
-                            <img src="flatwater.jpg" className="cardIcon"></img>
-                            <h1>Flatwater Paddle Co.</h1>
+                            <h2>Technical Director</h2>
+                            <img src="ewb.jpg" className="cardIcon"></img>
+                            <h1>NU Engineers Without Borders</h1>
                             <div className="cardText">
-                                <p>Ringwood, NJ</p>
-                                <p>August 2020, June-August<br />2021 & 2022, May 2023</p>
-                                <p><b>Skills:</b> Customer Service, Construction, Rescue Training, Communication</p>
+                                <p>September 2022 - Present<br /></p>
+                                <p><b>Projects:</b> Valve Box Redesign, Las Delicias Pipe Bridge</p>
+                                <p><b>Skills:</b> AutoCAD, Civil Engineering Design, Collaboration, Leadership</p>
                             </div>
                         </div>
                     </div>

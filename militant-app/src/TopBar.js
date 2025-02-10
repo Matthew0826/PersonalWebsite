@@ -7,7 +7,7 @@ const TopBar = () => {
     return (
         <div className="top-bar">
             <div className="logo">Matthew Geisel</div>
-            <div className="links" >
+            {/* <div className="links" >
                 <a className="option" href="/about" >About Me</a>
                 <a className="option" href="/plants">Water My Plants</a>
                 <a className="option" href="/resources">Resources</a>
@@ -19,7 +19,7 @@ const TopBar = () => {
             </div>
             <div className="user-actions">
                 <button type="button">Sign In</button>
-            </div>
+            </div> */}
         </div>
     );
 };

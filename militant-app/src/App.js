@@ -11,7 +11,7 @@ export default function App() {
       <TopBar></TopBar>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/about" />} /> {/* Redirect root to /about */}
+          <Route path="/" element={<Navigate to="/resume" />} /> {/* Redirect root to /about */}
           <Route path="/about" element={<AboutMe />}></Route>
           <Route path="/test" element={<TestComponent />}></Route>
           <Route path="/resume" element={<Resume />}></Route>
