@@ -13,7 +13,7 @@ const Resume = () => {
     };
     return (
         <div>
-            <Parallax pages={4} ref={parallaxRef} >
+            <Parallax pages={5} ref={parallaxRef} >
                 {/*The Images*/}
                 < ParallaxLayer speed={0} offset={-0.3} >
                     <img className='main-content' src='boston.jpeg'></img>
@@ -32,6 +32,11 @@ const Resume = () => {
 
                 < ParallaxLayer speed={0} offset={2.6} >
                     <img className={'main-content'} src='utahRoverImg.png'></img>
+                    <div className='overlay'> </div>
+                </ParallaxLayer>
+
+                < ParallaxLayer speed={0} offset={3.6} >
+                    <img className={'main-content'} src='PEAK.jpg'></img>
                     <div className='overlay'> </div>
                 </ParallaxLayer>
 
@@ -68,6 +73,15 @@ const Resume = () => {
                 }}><br /><br />Extracurriculars</ParallaxLayer>
                 {/*The Panels*/}
 
+                <ParallaxLayer speed={0.25} offset={3.9999} style={{
+                    fontSize: '5rem',
+                    alignItems: 'center',
+                    size: '50vh',
+                    color: "white",
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 1)', // Text shadow for highlighting
+                }}><br /><br />Awards</ParallaxLayer>
+                {/*The Panels*/}
+
                 <ParallaxLayer speed={0.25} offset={.15}>
                     <div className="panel">
                         <div className="card" onClick={() => handlePress(1)}>
@@ -75,9 +89,9 @@ const Resume = () => {
                             <img src="northeastern.jpg" className="cardIcon"></img>
                             <h1>Northeastern<br />University</h1>
                             <div className="cardText">
-                                <p>Mechanical & Computer <br />Engineering</p>
+                                <p>Mechanical & Electrical <br />Engineering</p>
                                 <p>-- Class of 2026 --</p>
-                                <p>GPA: 3.947</p>
+                                <p>GPA: 3.955</p>
                             </div>
                         </div >
                         <div className="card" onClick={() => handlePress(2)}>
@@ -100,7 +114,7 @@ const Resume = () => {
                                 <p>Team of 10+ People</p>
                             </div>
                         </div>
-                        <div className="card">
+                        <div className="card" onClick={() => handlePress(4)}>
                             <h2>Awards</h2>
                             <img src="tbp.png" className="cardIcon"></img>
                             <h1>Northeastern<br />Tau Beta Pi</h1>
@@ -211,7 +225,7 @@ const Resume = () => {
                             <h1>NU SEDS</h1>
                             <div className="cardText">
                                 <p>January 2023 - Present</p>
-                                <p><b>Projects:</b> SEDS Finance System, Managing Budget of $25,000+</p>
+                                <p><b>Projects:</b> SEDS Finance System, Managing Budget of $50,000+</p>
                                 <p><b>Skills:</b> HTML/CSS/JS, React.js, Fullstack Development, Leadership, Finance</p>
                             </div>
                         </div>
@@ -237,7 +251,50 @@ const Resume = () => {
                         </div>
                     </div>
                 </ParallaxLayer>
-
+                <ParallaxLayer speed={0.25} offset={4.15}>
+                    <div className="panel">
+                        <div className="card">
+                            <h2>Member</h2>
+                            <img src="tbp.png" className="cardIcon"></img>
+                            <h1>Northeastern<br />Tau Beta Pi</h1>
+                            <div className="cardText">
+                                <p>For Academic Performance <br /> & Character</p>
+                                <p>Engineering Honor Society</p>
+                                <p>Member Since Spring 2024</p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <h2>Awardee</h2>
+                            <img src="RISE.jpeg" className="cardIcon"></img>
+                            <h1>PEAK Award</h1>
+                            <div className="cardText">
+                                <p>Award of $2,750 for NU Lunabotics Project</p>
+                                <p>Presented at RISE 2025</p>
+                                <p>Awarded Spring 2025</p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <h2>Member</h2>
+                            <img src="HKN.jpg" className="cardIcon"></img>
+                            <h1>Northeastern <br /> Eta Kappa Nu</h1>
+                            <div className="cardText">
+                                <p>For Academic Performance in Electrical & Computer Engineering</p>
+                                <p>IEEE Engineering Honor Society</p>
+                                <p>Member Since Spring 2025</p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <h2>Awardee</h2>
+                            <img src="Eagle.png" className="cardIcon"></img>
+                            <h1>Eagle Scout</h1>
+                            <div className="cardText">
+                                <p>Awarded Fall 2021</p>
+                                <p>Project: Constructing Outdoor Reading Garden for Ringwood Public Library</p>
+                                <p>Was Senior Patrol Leader of Troop of over 30</p>
+                            </div>
+                        </div>
+                    </div>
+                </ParallaxLayer>
             </Parallax>
         </div >
     )

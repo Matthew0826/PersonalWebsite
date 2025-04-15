@@ -1,0 +1,19 @@
+/* TopBar.css */
+.portfolio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+}
+
+.element{
+    display: flex;
+    height: 75%;
+    width: 100%;
+    margin-top: 2.5%;
+    background: linear-gradient(to bottom, rgb(230, 230, 230), rgb(180, 180, 180));
+    color: black
+}

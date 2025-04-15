@@ -23,8 +23,8 @@ const AboutMe = () => {
                                             <h4>--EDUCATION--</h4>
                                             <h1>Northeastern University</h1>
                                             <h4>3rd Year</h4>
-                                            <h4>Mechanical & Computer Engineering</h4>
-                                            <h4>GPA: 3.947</h4>
+                                            <h4>Mechanical & Electrical Engineering</h4>
+                                            <h4>GPA: 3.955</h4>
 
                                         </div>
                                     </div>

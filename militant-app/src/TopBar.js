@@ -7,6 +7,10 @@ const TopBar = () => {
     return (
         <div className="top-bar">
             <div className="logo">Matthew Geisel</div>
+            <div className="links" >
+                <a className="option" href="/resume" >Resume</a>
+                <a className="option" href="/portfolio">Portfolio</a>
+            </div>
             {/* <div className="links" >
                 <a className="option" href="/about" >About Me</a>
                 <a className="option" href="/plants">Water My Plants</a>

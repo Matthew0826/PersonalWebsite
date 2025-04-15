@@ -5,6 +5,7 @@ import Resume from "./Resume"
 import PhotoAlbum from "./PhotoAlbum"
 import './App.css'; // Import the CSS file for styling
 import TestComponent from "./TestComponent";
+import Portfolio from "./Portfolio";
 export default function App() {
   return (
     <div className="App">
@@ -15,6 +16,8 @@ export default function App() {
           <Route path="/about" element={<AboutMe />}></Route>
           <Route path="/test" element={<TestComponent />}></Route>
           <Route path="/resume" element={<Resume />}></Route>
+          <Route path="/portfolio" element={<Portfolio />}></Route>
+
           <Route path="/for_faith" element={<PhotoAlbum />}></Route>
         </Routes>
       </BrowserRouter>
