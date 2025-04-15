@@ -1,8 +1,8 @@
 // TopBar.js
-import React, {useRef, handlePress} from 'react';
+import React, {useRef} from 'react';
 import './Portfolio.css'; // Import the CSS file for styling
 import { Link, Outlet } from 'react-router-dom';
-import ReactPlayer from 'react-player';
+import ReactPlayer, {handlePress} from 'react-player';
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
 
 const Portfolio = () => {
